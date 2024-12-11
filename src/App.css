@@ -1,0 +1,219 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: url('Fee.png') no-repeat center center fixed;
+  background-size: cover;
+}
+ 
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9); /* Adds a slight overlay for readability */
+  backdrop-filter: blur(5px); /* Adds blur effect to the background */
+  box-shadow: inset 0 0 50px rgba(255, 0, 0, 0.2); /* Adds a festive glow */
+}
+ 
+.sidebar {
+  width: 20%;
+  background: linear-gradient(to bottom, #f44336, #4caf50); /* Christmas red and green */
+  color: white;
+  padding: 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+ 
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+ 
+.sidebar ul li {
+  padding: 10px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  text-transform: capitalize;
+  color: #fff;
+}
+ 
+.sidebar ul li:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Slight highlight effect */
+}
+ 
+.sidebar.open {
+  transform: translateX(0);
+}
+ 
+.sidebar.close {
+  transform: translateX(-100%);
+}
+ 
+.close-btn {
+  font-size: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  float: right;
+  display: none;
+}
+ 
+.chat-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
+}
+ 
+.image-container {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.3); /* Light snowy effect */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+ 
+.image-container img {
+  max-width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 3px solid #f44336;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+ 
+ 
+.chat-window {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.8);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+ 
+.input-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  background: linear-gradient(to right, #4caf50, #f44336); /* Christmas gradient */
+  color: white;
+}
+ 
+.message {
+  max-width: 70%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  word-wrap: break-word;
+}
+ 
+.user-message {
+  margin-left: auto;
+  background-color: #e57373; /* Warm red for user messages */
+  color: #fff;
+}
+ 
+.ai-message {
+  margin-right: auto;
+  background-color: #81c784; /* Festive green for AI messages */
+  color: #fff;
+}
+ 
+textarea {
+  flex: 1;
+  resize: none;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+}
+ 
+.sidebar-toggle-btn {
+  position: absolute;
+  display: none;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+ 
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100%;
+    min-width: 300px;
+    transform: translateX(-100%);
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  }
+ 
+  .sidebar-toggle-btn {
+    display: block;
+  }
+ 
+  .close-btn {
+    display: block;
+  }
+ 
+  .sidebar.open {
+    transform: translateX(0);
+  }
+ 
+  .chat-container {
+    padding-left: 0;
+  }
+}
+ 
+.no-messages {
+  text-align: center;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+}
+ 
+/* Decorative Elements */
+.mt-1 {
+  margin-top: 1rem;
+}
+ 
+.mt-2 {
+  margin-top: 2rem;
+}
+ 
+.d-flex {
+  display: flex;
+}
+ 
+.align-items-center {
+  align-items: center;
+}
+ 
+.text-center {
+  text-align: center;
+}
+ 
+/* Snowfall Animation (Optional) */
+@keyframes snowfall {
+  0% { transform: translateY(-100px); }
+  100% { transform: translateY(100vh); }
+}
+ 
+.snowflake {
+  position: absolute;
+  top: 0;
+  animation: snowfall 10s linear infinite;
+  opacity: 0.8;
+  color: white;
+}
+ 
+.snowflake:nth-child(1) { left: 10%; animation-duration: 15s; font-size: 20px; }
+.snowflake:nth-child(2) { left: 50%; animation-duration: 12s; font-size: 25px; }
+.snowflake:nth-child(3) { left: 70%; animation-duration: 10s; font-size: 18px; }
